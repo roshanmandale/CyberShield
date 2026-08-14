@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler');
 const User = require('../models/User');
 
 const generateToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET, {
+    return jwt.sign({ id }, process.env.JWT_SECRET || 'CyberShield_Fallback_Prod_2026', {
         expiresIn: '30d',
     });
 };

@@ -1,7 +1,9 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
+    baseURL: import.meta.env.MODE === 'production'
+        ? 'https://cybershield-u9rs.onrender.com/api'
+        : (import.meta.env.VITE_API_URL || 'http://localhost:5000/api'),
 });
 
 // Add a request interceptor for attaching JWT
